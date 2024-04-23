@@ -1,0 +1,22 @@
+syntax = 'proto3';
+
+package api;
+
+option go_package = "launcher/api/v1;v1";
+option java_multiple_files = true;
+option java_package = "api.v1";
+option objc_class_prefix = "APILauncherV1";
+
+service LauncherService {
+  rpc Launch(LaunchRequest) returns (LaunchResponse) {}
+}
+
+message LaunchRequest {
+  string params = 1;
+  int32 port = 2;
+}
+
+message LaunchResponse {
+  int32 code = 1;
+  string message = 2;
+}
